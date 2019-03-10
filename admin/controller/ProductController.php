@@ -24,12 +24,11 @@
 
 			if(!empty($_POST)) {
 				$data = $_POST;
-				$errors = array();
 				$this->loadModel("Product");
 
 				if (isset($_FILES['image'])) {
 					if ($_FILES['image']['error'] === 0) {
-						$file_name = "img/".$_FILES['image']['name'];
+						$file_name = "uploads/".$_FILES['image']['name'];
 						if(move_uploaded_file($_FILES['image']['tmp_name'], $file_name)) {
 							$data['image'] = $file_name;
 						}
@@ -67,15 +66,16 @@
 			}
 
 			if(!empty($_POST)) {
+				$data = $_POST;
 				if (isset($_FILES['image'])) {
 					if ($_FILES['image']['error'] === 0) {
-						$file_name = "img/".$_FILES['image']['name'];
+						$file_name = "uploads/".$_FILES['image']['name'];
 						if(move_uploaded_file($_FILES['image']['tmp_name'], $file_name)) {
 							$data['image'] = $file_name;
 						}
 					}
 				}
-				$data = $_POST;
+				// pr($data);
 				$product = $this->Product->Update($data, $id); 
 				if($product>0) {
 					$this->redirect(".");

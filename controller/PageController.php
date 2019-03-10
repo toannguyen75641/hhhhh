@@ -100,21 +100,7 @@ class PageController extends Controller
 			catch (Exception $e) {
 			    echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
 			}
-
-				// if($sent==true) {
-				// 	$data = $_POST;
-				// 	$this->loadModel('Contact');
-				// 	$data['created'] = date('Y-m-d H:i:s');
-				// 	$contact = $this->Contact->add($data);
-				// 	//pr($data);
-				// 	if($contact>0) {
-				// 		$this->redirect('.');
-				// 	}
-				// }
-				// else {
-				// 	echo 'Fail';
-				// }
-			}
+		}
 
 		$this->loadModel('Category');
 		$category = $this->Category->getAll();

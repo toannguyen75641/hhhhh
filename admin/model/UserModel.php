@@ -18,6 +18,7 @@
 
 		public function getOne($email) {
 			$query = $this->ex_query("SELECT * FROM user WHERE email = '$email' LIMIT 1");
+			// die($query);
 			$row = mysqli_fetch_assoc($query);
 			return $row;
 		}

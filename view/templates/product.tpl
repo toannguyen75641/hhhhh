@@ -1,7 +1,7 @@
 <?php $this->layout('layout.tpl'); ?>
 
 <h2 style="text-align: center; color: red; padding: 10px;">Product Details</h2>
-<div class="detail">
+<div class="d-flex flex-wrap">
 	<?php if(isset($list)) : ?>
 		<h2><?= $list['name'] ?></h2><hr>
 		<div class="left_detail">
